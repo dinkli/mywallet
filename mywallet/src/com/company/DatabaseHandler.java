@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 public class DatabaseHandler extends Configs {
     Connection dbConnection;
@@ -20,7 +21,7 @@ public class DatabaseHandler extends Configs {
 
         return dbConnection;
     }
-    public void enterDataIn(String balance) {
+    public void enterDataIn(Scanner addMoney) {
         String insert = "INSERT INTO " + Const.TBALANCE_TABLE + "(" +
                 Const.TBALANCE_BALANCE + ")" + "VALUES(?)";
         try {
@@ -33,7 +34,5 @@ public class DatabaseHandler extends Configs {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
-
     }
 }
